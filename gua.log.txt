@@ -386,3 +386,18 @@
 17:38:48 kwargs,  {'username': 'txb'} <class 'dict'>
 17:38:48 kwargs,  {'topic_id': 1} <class 'dict'>
 17:38:48 kwargs,  {'topic_id': 2} <class 'dict'>
+17:49:03 kwargs,  {'id': 5} <class 'dict'>
+17:49:03 kwargs,  {'id': 3} <class 'dict'>
+17:49:03 debug 2
+17:49:03 kwargs,  {'topic_id': 3} <class 'dict'>
+17:49:03 kwargs,  {'topic_id': 3} <class 'dict'>
+17:49:08 kwargs,  {'id': 5} <class 'dict'>
+17:49:08 kwargs,  {'id': 3} <class 'dict'>
+17:49:08 debug 2
+17:49:08 kwargs,  {'topic_id': 3} <class 'dict'>
+17:49:08 kwargs,  {'topic_id': 3} <class 'dict'>
+17:49:08 kwargs,  {'id': 5} <class 'dict'>
+17:49:08 kwargs,  {'id': 5} <class 'dict'>
+17:49:13 kwargs,  {'topic_id': 1} <class 'dict'>
+17:49:13 kwargs,  {'topic_id': 2} <class 'dict'>
+17:49:13 kwargs,  {'topic_id': 3} <class 'dict'>

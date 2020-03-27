@@ -3,6 +3,7 @@ __pycache__/
 .idea
 data
 config.py
+*.md
 *.py[cod]
 *$py.class
 
