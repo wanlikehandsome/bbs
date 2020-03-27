@@ -3,6 +3,7 @@ __pycache__/
 .idea
 data
 config.py
+log.gua.txt
 *.md
 *.py[cod]
 *$py.class
