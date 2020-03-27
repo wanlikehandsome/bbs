@@ -2,6 +2,7 @@
 __pycache__/
 .idea
 data
+test
 config.py
 log.gua.txt
 *.md
