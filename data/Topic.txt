@@ -1,16 +1,7 @@
 [
   {
-    "id": 1,
-    "views": 22,
-    "title": "gw ",
-    "content": "123",
-    "ct": 1490794007,
-    "ut": 1490794007,
-    "user_id": 1
-  },
-  {
     "id": 2,
-    "views": 2,
+    "views": 4,
     "title": "找工作",
     "content": "# 找工作\r\n1. dododo\r\n2. dododo\r\n3. dododo",
     "ct": 1585301878,
@@ -19,11 +10,12 @@
   },
   {
     "id": 3,
-    "views": 2,
+    "views": 11,
     "title": "考研",
     "content": "**考研**",
     "ct": 1585302543,
     "ut": 1585302543,
     "user_id": 5
   }
+
 ]

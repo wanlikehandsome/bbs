@@ -15,12 +15,13 @@ from models.topic import Topic
 main = Blueprint('topic', __name__)
 
 import uuid
-csrf_tokens = set()
+csrf_tokens = dict()
 @main.route("/")
 def index():
     ms = Topic.all()
     token = str(uuid.uuid4())
-    csrf_tokens.add(token)
+    u = current_user()
+    csrf_tokens['token'] = u.id
     return render_template("topic/index.html", ms=ms, token=token)
 
 
@@ -43,9 +44,9 @@ def add():
 def delete():
     id = int(request.args.get('id'))
     token = request.args.get('token')
-    if token in csrf_tokens:
-        csrf_tokens.remove(token)
-        u = current_user()
+    u = current_user()
+    if token in csrf_tokens and csrf_tokens['token'] == u.id:
+        csrf_tokens.pop(token)
         if u is not None:
             Topic.delete(id)
             return redirect(url_for('.index', token=token))
