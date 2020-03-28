@@ -22,7 +22,7 @@ def add():
     u = current_user()
     if u.role == 1:
         m = Board.new(form)
-        return redirect(url_for('topic.index'))
+        return redirect(url_for('.index'))
     else:
         abort(403)
 
