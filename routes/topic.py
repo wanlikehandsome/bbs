@@ -10,7 +10,7 @@ from flask import (
 from routes import *
 
 from models.topic import Topic
-
+from models.board import Board
 
 main = Blueprint('topic', __name__)
 
@@ -18,11 +18,17 @@ import uuid
 csrf_tokens = dict()
 @main.route("/")
 def index():
-    ms = Topic.all()
+    board_id = int(request.args.get('board_id', -1))
+    if board_id == -1:
+        ms = Topic.all()
+    else:
+        ms = Topic.find_all(board_id=board_id)
     token = str(uuid.uuid4())
     u = current_user()
     csrf_tokens['token'] = u.id
-    return render_template("topic/index.html", ms=ms, token=token)
+    bs = Board.all()
+    print(bs)
+    return render_template("topic/index.html", ms=ms, token=token, bs=bs)
 
 
 @main.route('/<int:id>')
@@ -58,4 +64,5 @@ def delete():
 
 @main.route("/new")
 def new():
-    return render_template("topic/new.html")
+    bs = Board.all()
+    return render_template("topic/new.html", bs=bs)

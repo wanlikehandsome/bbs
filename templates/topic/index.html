@@ -14,21 +14,29 @@
     <script src="/static/lib/editor/ext.js"></script>
 </head>
 <body>
-    <div id="main">
-        <div id="sidebar">
-            <div class="panel">
-                <div class="inner">
-                    <a href="/topic/new" class="create_topic_btn">
-                        <span class="span-success">发布话题</span>
-                    </a>
-                </div>
+<div id="main">
+    <div id="sidebar">
+        <div class="panel">
+            <div class="inner">
+                <a href="/topic/new" class="create_topic_btn">
+                    <span class="span-success">发布话题</span>
+                </a>
             </div>
         </div>
-        <div id="content">
-            <div class="panel">
-                <div class="inner post">
-                    <div class="topic_list">
-                        {% for t in ms %}
+    </div>
+    <div id="content">
+        <div class="panel">
+            <div class="header">
+            <a href="/topic"
+                       class="topic-tab current-tab">全部</a>
+                {% for b in bs %}
+                    <a href="/topic?board_id={{ b.id }}"
+                       class="topic-tab ">{{ b.title }}</a>
+                {% endfor %}
+            </div>
+            <div class="inner post">
+                <div class="topic_list">
+                    {% for t in ms %}
                         <div class="cell">
                             <div class="topic_title_wrapper">
                                 <a class="topic_title" href="{{ url_for('topic.detail', id=t.id) }}">
@@ -40,17 +48,17 @@
                                 </a>
                             </div>
                         </div>
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
+</div>
 <script>
-  (function () {
-    var editor = new Editor();
-    editor.render($('.editor')[0]);
-  })();
+    (function () {
+        var editor = new Editor();
+        editor.render($('.editor')[0]);
+    })();
 </script>
 </body>
 </html>

@@ -1,21 +1,22 @@
 [
   {
-    "id": 2,
-    "views": 4,
-    "title": "找工作",
-    "content": "# 找工作\r\n1. dododo\r\n2. dododo\r\n3. dododo",
-    "ct": 1585301878,
-    "ut": 1585301878,
-    "user_id": 5
+    "id": 1,
+    "views": 1,
+    "title": "        hello",
+    "content": "工作",
+    "ct": 1585364667,
+    "ut": 1585364667,
+    "user_id": 5,
+    "board_id": 2
   },
   {
-    "id": 3,
-    "views": 11,
-    "title": "考研",
-    "content": "**考研**",
-    "ct": 1585302543,
-    "ut": 1585302543,
-    "user_id": 5
+    "id": 2,
+    "views": 1,
+    "title": "        放假复习",
+    "content": "啦啦啦",
+    "ct": 1585365169,
+    "ut": 1585365169,
+    "user_id": 5,
+    "board_id": 1
   }
-
 ]
