@@ -3,6 +3,8 @@ __pycache__/
 .idea
 data
 test
+web18.py
+*.txt
 config.py
 log.gua.txt
 *.md
