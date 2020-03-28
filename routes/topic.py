@@ -27,7 +27,6 @@ def index():
     u = current_user()
     csrf_tokens['token'] = u.id
     bs = Board.all()
-    print(bs)
     return render_template("topic/index.html", ms=ms, token=token, bs=bs)
 
 

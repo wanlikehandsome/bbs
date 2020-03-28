@@ -7,8 +7,12 @@
 <body>
     <form action="/board/add" method="post">
         <input  name="title" value="" placeholder="请输入板块名称"/>
-        <br>
         <button>add</button>
     </form>
+    {% for b in bs %}
+        <span>{{ b.title }}</span>
+        <a href="/board/delete?board_id={{ b.id }}">删除该板块</a>
+        <br />
+    {% endfor %}
 </body>
 </html>

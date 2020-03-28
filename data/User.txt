@@ -1,27 +1,14 @@
 [
   {
     "id": 1,
-    "username": "Gua @ 2017",
-    "password": "1be6af03717a0906a774a129ac467fcea8f89849df003548a8039cffffb12baf"
+    "username": "txb",
+    "password": "fb0f4de9b61de7726971c4222ce54acf1d88c91361091820e78db31ef34e7f42",
+    "role": 1
   },
   {
     "id": 2,
-    "username": "hello",
-    "password": "d1fde166a8845be37f1f11b6c27ce9ee21cd511044bd459b9aae45eec904313e"
-  },
-  {
-    "id": 3,
-    "username": "akirayu101",
-    "password": "36f5f81c35faf28dd8957d81f7a07ded6fd2a68db558bda9a5ca4904638ebfe4"
-  },
-  {
-    "id": 4,
-    "username": "lin",
-    "password": "1be6af03717a0906a774a129ac467fcea8f89849df003548a8039cffffb12baf"
-  },
-  {
-    "id": 5,
-    "username": "txb",
-    "password": "fb0f4de9b61de7726971c4222ce54acf1d88c91361091820e78db31ef34e7f42"
+    "username": "ooooo",
+    "password": "c8539785a72908fa25aa1cc9fb72b5b6d72268c615e61032dbc0923e010f39cc",
+    "role": 11
   }
 ]
