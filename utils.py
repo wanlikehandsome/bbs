@@ -11,6 +11,3 @@ def log(*args, **kwargs):
     dt = time.strftime(format, value)
     with open('gua.log.txt', 'a', encoding='utf-8') as f:
         print(dt, *args, file=f, **kwargs)
-
-
-

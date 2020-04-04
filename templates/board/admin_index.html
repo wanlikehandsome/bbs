@@ -2,18 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Board Admin </title>
+    <title>board admin</title>
 </head>
 <body>
     <form action="/board/add" method="post">
-        <input  name="title" value="" placeholder="请输入板块名称"/>
+        <input name="title">
+        <br>
         <button>add</button>
     </form>
-    {% for b in bs %}
-        <span>{{ b.title }}</span>
-        <a href="/board/delete?board_id={{ b.id }}">删除该板块</a>
-        <br />
-    {% endfor %}
-    <a href="{{ url_for('topic.index') }}" >回到主页</a>
 </body>
 </html>

@@ -1,22 +1,12 @@
 [
   {
     "id": 1,
-    "views": 8,
-    "title": "        hello",
-    "content": "工作",
-    "ct": 1585364667,
-    "ut": 1585364667,
-    "user_id": 5,
-    "board_id": 2
-  },
-  {
-    "id": 2,
-    "views": 1,
-    "title": "        放假复习",
-    "content": "啦啦啦",
-    "ct": 1585365169,
-    "ut": 1585365169,
-    "user_id": 5,
+    "views": 10,
+    "title": "test",
+    "content": "test",
+    "ct": 1491201817,
+    "ut": 1491201817,
+    "user_id": 1,
     "board_id": 1
   }
 ]

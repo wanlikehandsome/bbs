@@ -1,14 +1,8 @@
 [
   {
     "id": 1,
-    "username": "txb",
-    "password": "fb0f4de9b61de7726971c4222ce54acf1d88c91361091820e78db31ef34e7f42",
-    "role": 1
-  },
-  {
-    "id": 2,
-    "username": "ooooo",
-    "password": "c8539785a72908fa25aa1cc9fb72b5b6d72268c615e61032dbc0923e010f39cc",
-    "role": 11
+    "username": "test",
+    "password": "3ad07d352d8acf9a5b79db8dcbf88c26ddb07177e4c828c7b94e38a0ee698793",
+    "user_image": "Screenshot_7.png"
   }
 ]
