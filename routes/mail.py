@@ -19,7 +19,6 @@ def add():
     mail = Mail.new(form)
     mail.set_sender(current_user().id)
     return redirect(url_for(".index"))
-    ...
 
 
 @main.route("/", methods=["GET"])
