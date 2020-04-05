@@ -18,6 +18,7 @@ main = Blueprint('topic', __name__)
 
 import uuid
 csrf_tokens = dict()
+
 @main.route("/")
 def index():
     board_id = int(request.args.get('board_id', -1))
@@ -29,7 +30,7 @@ def index():
         ms = Topic.find_all(board_id=board_id)
     token = str(uuid.uuid4())
     u = current_user()
-    csrf_tokens['token'] = u.id
+    csrf_tokens[token] = u.id
     bs = Board.all()
     return render_template("topic/index.html", ms=ms, token=token, bs=bs)
 
@@ -37,7 +38,9 @@ def index():
 @main.route('/<int:id>')
 def detail(id):
     m = Topic.get(id)
-    return render_template("topic/detail.html", topic=m)
+    u = User.find(id=m.user_id)
+    b = Board.find(id=m.board_id)
+    return render_template("topic/detail.html", topic=m, user=u, board=b)
 
 
 @main.route("/add", methods=["POST"])
@@ -45,8 +48,6 @@ def add():
     form = request.form
     u = current_user()
     m = Topic.new(form, user_id=u.id)
-    for i in range(1000):
-        m = Topic.new(form, user_id=u.id)
     return redirect(url_for('.detail', id=m.id))
 
 
@@ -60,7 +61,8 @@ def delete():
         csrf_tokens.pop(token)
         if u is not None:
             print('删除 topic 用户是', u, id)
-            Topic.delete(id)
+            t = Topic.find(id=id)
+            t.delete()
             return redirect(url_for('.index'))
         else:
             abort(404)

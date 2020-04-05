@@ -107,3 +107,9 @@ def add_img():
 @main.route("/uploads/<filename>")
 def uploads(filename):
     return send_from_directory(user_file_director, filename)
+
+@main.route("/user/<username>/")
+def user(username):
+    u = User.find_by(username=username)
+    if u is not None:
+        return redirect(url_for('index.profile'))

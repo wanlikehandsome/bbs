@@ -7,10 +7,17 @@
 <body>
 <p>发送邮件</p>
 <form method="post" action={{ url_for('.add') }}>
+    邮件内容:
 <input type="text" name="content" placeholder="content">
+    <br />
+    邮件主题:
 <input type="text" name="title" placeholder="title">
-<input type="text" name="receiver_id" placeholder="to_id">
+    <br />
+    邮件接收者的id:
+<input type="text" name="receiver_id" placeholder="to_id"value="{{ receiver_id }}">
+    <br />
 <button type="submit">提交邮件</button>
+    <br />
 </form>
 
 <p>收到邮件</p>

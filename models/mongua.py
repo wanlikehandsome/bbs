@@ -141,7 +141,8 @@ class Mongua(object):
         """
         name = cls.__name__
         # TODO 过滤掉被删除的元素
-        # kwargs['deleted'] = False
+        # mongua.db[name].find({'deleted': False})
+        kwargs['deleted'] = False
         flag_sort = '__sort'
         sort = kwargs.pop(flag_sort, None)
         ds = mongua.db[name].find(kwargs)

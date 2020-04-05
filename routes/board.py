@@ -19,11 +19,9 @@ main = Blueprint('board', __name__)
 def add():
     form = request.form
     u = current_user()
-    if u.role == 1:
-        m = Board.new(form)
-        return redirect(url_for('.index'))
-    else:
-        abort(403)
+    m = Board.new(form)
+    return redirect(url_for('.index'))
+
 
 
 @main.route("/admin")

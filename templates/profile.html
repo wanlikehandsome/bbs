@@ -7,16 +7,19 @@
 <body>
     <h1>用户资料页面</h1>
     <div>
-        {{ user.id }}
+        用户id: {{ user.id }}
     </div>
     <div>
-        {{ user.name }}
+        用户昵称: {{ user.username }}
     </div>
     <div>
-        {{ user.password }}
+        用户密码: {{ user.password }}
     </div>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
+    <div>
+        <img src={{ '/uploads/' + user.user_image + '?v=3&amp;s=120' }}title="atian25"/>
+    </div>
+    <title>上传用户头像</title>
+    <h1>上传用户头像</h1>
     <form method=post action={{ url_for(".add_img") }} enctype=multipart/form-data>
       <p><input type=file name=file>
          <input type=submit value=Upload>
