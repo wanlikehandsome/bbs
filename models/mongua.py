@@ -94,8 +94,6 @@ class Mongua(object):
         m.updated_time = ts
         # m.deleted = False
         m.type = name.lower()
-        # 特殊 model 的自定义设置
-        # m._setup(form)
         m.save()
         return m
 
