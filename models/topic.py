@@ -54,15 +54,25 @@ class Topic(Mongua):
     # 2. redis cahce
     redis_cache = RedisCache()
     def to_json(self):
+        """
+         将从MongoDB中查询到的对象转化为json格式
+        :return: json str
+        """
         d = dict()
         for k in Topic.__fields__:
             key = k[0]
             if not key.startswith('_'):
+                # 过滤 _id
                 d[key] = getattr(self,key)
         return json.dumps(d)
 
     @classmethod
     def from_json(cls, j):
+        """
+        根据json格式的数据, 返回一个topic对象
+        :param j: josn
+        :return: topic object
+        """
         d = json.loads(j)
 
         instance = cls()
@@ -87,14 +97,28 @@ class Topic(Mongua):
 
     @classmethod
     def cache_all(cls):
-
-        #2. redis cache
+        """数据更新一次, 缓存更新一次
+        :return: topic list
+        """
         if Topic.should_update_all:
             Topic.redis_cache.set('topic_all', json.dumps([i.to_json() for i in cls.all_delay()]))
             Topic.should_update_all = False
         j = json.loads(Topic.redis_cache.get('topic_all').decode('utf-8'))
         j = [Topic.from_json(i) for i in j]
         return j
+
+    @classmethod
+    def cache_find(cls, board_id):
+        """数据更新一次, 缓存更新一次
+        :return: topic list
+        """
+        j = json.loads(Topic.redis_cache.get('topic_all').decode('utf-8'))
+        j = [Topic.from_json(i) for i in j]
+        topics_in_board = []
+        for topic_object in j:
+            if topic_object.board_id == board_id:
+                topics_in_board.append(topic_object)
+        return topics_in_board
 
 
 

@@ -117,20 +117,11 @@ class Mongua(object):
                 # 设置默认值
                 setattr(m, k, v)
         setattr(m, '_id', bson['_id'])
-        # 这一句必不可少，否则 bson 生成一个新的_id
-        # FIXME, 因为现在的数据库里面未必有 type
-        # 所以在这里强行加上
-        # 以后洗掉db的数据后应该删掉这一句
         m.type = cls.__name__.lower()
         return m
 
     @classmethod
     def all(cls):
-        # 按照 id 升序排序
-        # name = cls.__name__
-        # ds = mongua.db[name].find()
-        # l = [cls._new_with_bson(d) for d in ds]
-        # return l
         return cls._find()
 
     # TODO, 还应该有一个函数 find(name, **kwargs)
@@ -157,8 +148,6 @@ class Mongua(object):
         ds = mongua.db[name]._find(kwargs)
         l = [d for d in ds]
         return l
-        # 直接 list() 就好了
-        # return list(l)
 
     @classmethod
     def _clean_field(cls, source, target):
@@ -193,10 +182,7 @@ class Mongua(object):
     def find_one(cls, **kwargs):
         """
         """
-        # TODO 过滤掉被删除的元素
-        # kwargs['deleted'] = False
         l = cls._find(**kwargs)
-        # print('find one debug', kwargs, l)
         if len(l) > 0:
             return l[0]
         else:
@@ -216,7 +202,6 @@ class Mongua(object):
         for k, v in form.items():
             if hard or hasattr(self, k):
                 setattr(self, k, v)
-        # self.updated_time = int(time.time()) fixme
         self.save()
 
     def save(self):

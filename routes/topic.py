@@ -23,11 +23,13 @@ csrf_tokens = dict()
 def index():
     board_id = int(request.args.get('board_id', -1))
     if board_id == -1:
-        # ms = Topic.cache_all()
-        ms = Topic.all_delay()
+        ms = Topic.cache_all()
+        if ms is None:
+            ms = Topic.all_delay()
     else:
-        # ms = Topic.cache_find(board_id)
-        ms = Topic.find_all(board_id=board_id)
+        ms = Topic.cache_find(board_id)
+        if ms == []:
+            ms = Topic.find_all(board_id=board_id)
     token = str(uuid.uuid4())
     u = current_user()
     csrf_tokens[token] = u.id
@@ -60,7 +62,6 @@ def delete():
     if token in csrf_tokens and csrf_tokens[token] == u.id:
         csrf_tokens.pop(token)
         if u is not None:
-            print('删除 topic 用户是', u, id)
             t = Topic.find(id=id)
             t.delete()
             return redirect(url_for('.index'))

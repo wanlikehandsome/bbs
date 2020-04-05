@@ -36,6 +36,5 @@ def delete():
     board_id = int(request.args.get('board_id', -1))
     b = Board.find(id=board_id)
     b.delete()
-    print(b)
     return redirect(url_for('.index'))
 

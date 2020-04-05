@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@{{ user.username }}的个人主页bbs club</title>
+</head>
+<body>
+    <div>
+        用户昵称: {{ user.username }}
+    </div>
+    <div>
+        用户id: {{ user.id}}
+    </div>
+    <span>用户头像: </span>
+    <div>
+        <img src={{ '/uploads/' + user.user_image + '?v=3&amp;s=120' }}title="atian25"/>
+    </div>
+    <div class="articl">
+        TODO: 用户的文章列表
+        <ul>
+            <li><a>article 1</a></li>
+            <li><a>article 2</a></li>
+            <li><a>article 3</a></li>
+        </ul>
+    </div>
+</body>
+</html>

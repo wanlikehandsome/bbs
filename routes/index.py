@@ -27,16 +27,6 @@ def current_user():
     return u
 
 
-"""
-用户在这里可以
-    访问首页
-    注册
-    登录
-
-用户登录后, 会写入 session, 并且定向到 /profile
-"""
-
-
 @main.route("/")
 def index():
     u = current_user()
@@ -56,7 +46,6 @@ def login():
     form = request.form
     u = User.validate_login(form)
     if u is None:
-        # 转到 topic.index 页面
         return redirect(url_for('topic.index'))
     else:
         # session 中写入 user_id
@@ -108,8 +97,9 @@ def add_img():
 def uploads(filename):
     return send_from_directory(user_file_director, filename)
 
+
 @main.route("/user/<username>/")
 def user(username):
     u = User.find_by(username=username)
     if u is not None:
-        return redirect(url_for('index.profile'))
+        return render_template('user.html', user=u)
